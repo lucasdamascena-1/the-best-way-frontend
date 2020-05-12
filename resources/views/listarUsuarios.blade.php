@@ -122,7 +122,7 @@
         $.ajax({
             type : "POST",
             contentType : "application/json",
-            url : "http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/usuarios",
+            url : "http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/usuarios",
             data : JSON.stringify(formData),
             dataType : 'json',
             success : function(data) {
@@ -144,7 +144,7 @@
         if (confirm("Você realmente deseja excluir esse registro?")) {
             $.ajax({
                 type: "DELETE",
-                url: "http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/usuarios/" + id,
+                url: "http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/usuarios/" + id,
                 context: this,
                 success: function() {
                     alert('Registro excluido com sucesso!')
@@ -173,7 +173,7 @@
         $.ajax({
             type: "PUT",
             contentType : "application/json",
-            url: "http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/usuarios/" + formData.id,
+            url: "http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/usuarios/" + formData.id,
             data : JSON.stringify(formData),
             dataType : 'json',
             success: function() {
@@ -192,7 +192,7 @@
             var id = location.href.replace(location.origin+'/', "").split('/')[2];
             id = id.replace('id-','');
 
-            $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/usuarios/'+id, function(data) {
+            $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/usuarios/'+id, function(data) {
                 console.log(data);
                 $('#usu_id').val(data.id);
                 $("#nome").val(data.nome);
@@ -209,7 +209,7 @@
     }
 
     function carregarUsuarios() {
-        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/usuarios', function(items) {
+        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/usuarios', function(items) {
             for(i=0;i<items.length;i++) {
                 linha = montarLinha(items[i]);
                 var table = $('#tabelaUsuarios').DataTable();

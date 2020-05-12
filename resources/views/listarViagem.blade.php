@@ -66,7 +66,7 @@
     }
 
     function carregarViagem() {
-        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/pedidos', function(items) {
+        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/pedidos', function(items) {
             for(i=0;i<items.length;i++) {
                 linha = montarLinha(items[i]);
                 var table = $('#tabelaViagem').DataTable();

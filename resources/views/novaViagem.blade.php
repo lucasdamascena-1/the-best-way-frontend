@@ -150,6 +150,8 @@
                 origem: $("#origin-input").val(),
                 destino: $("#destination-input").val(),
                 corrida:[{
+                    desconto: 0.0,
+                    custoFixo: 0.0,
                     extras: $("#extras").val(),
                     preco: $("#preco").val(),
                     carro: {
@@ -168,6 +170,8 @@
                 origem: $("#origin-input").val(),
                 destino: $("#destination-input").val(),
                 corrida:[{
+                    desconto: 0.0,
+                    custoFixo: 0.0,
                     extras: $("#extras").val(),
                     preco: $("#preco").val(),
                     carro: {
@@ -186,7 +190,7 @@
         $.ajax({
             type : "POST",
             contentType : "application/json",
-            url : "http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/pedidos",
+            url : "http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/pedidos",
             data : JSON.stringify(formData),
             dataType : 'json',
             success : function(data) {
@@ -205,7 +209,7 @@
     }
 
     function loadUsers() {
-        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/usuarios', function(items) {
+        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/usuarios', function(items) {
             var str = '';
 
             for(i=0;i<items.length;i++) {
@@ -217,7 +221,7 @@
     }
 
     function loadCars() {
-        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/carros', function(items) {
+        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/carros', function(items) {
             var str = '';
 
             for(i=0;i<items.length;i++) {

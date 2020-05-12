@@ -129,7 +129,7 @@
         $.ajax({
             type : "POST",
             contentType : "application/json",
-            url : "http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/carros",
+            url : "http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/carros",
             data : JSON.stringify(formData),
             dataType : 'json',
             success : function(data) {
@@ -155,7 +155,7 @@
         if (confirm("Você realmente deseja excluir esse registro?")) {
             $.ajax({
                 type: "DELETE",
-                url: "http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/carros/" + id,
+                url: "http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/carros/" + id,
                 context: this,
                 success: function() {
                     alert('Registro excluido com sucesso!')
@@ -184,7 +184,7 @@
         $.ajax({
             type: "PUT",
             contentType : "application/json",
-            url: "http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/carros/" + formData.id,
+            url: "http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/carros/" + formData.id,
             data : JSON.stringify(formData),
             dataType : 'json',
             success: function() {
@@ -203,7 +203,7 @@
             var id = location.href.replace(location.origin+'/', "").split('/')[2];
             id = id.replace('id-','');
 
-            $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/carros/'+id, function(data) {
+            $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/carros/'+id, function(data) {
                 console.log(data);
                 $('#car_id').val(data.id);
                 $('#marca').val(data.marca);
@@ -220,7 +220,7 @@
     }
 
     function carregarCarros() {
-        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8080/carros', function(items) {
+        $.getJSON('http://ec2-34-238-124-201.compute-1.amazonaws.com:8081/carros', function(items) {
             for(i=0;i<items.length;i++) {
                 linha = montarLinha(items[i]);
                 var table = $('#tabelaCarros').DataTable();
