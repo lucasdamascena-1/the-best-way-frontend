@@ -1,0 +1,8 @@
+// Variables
+@import 'variables';
+
+.item-icon {
+    &:hover {
+        color: $p1;
+    }
+}
